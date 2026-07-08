@@ -1,0 +1,74 @@
+{
+  "network": {
+    "name": "Robinhood mainnet",
+    "chainId": 4663,
+    "environment": "production"
+  },
+  "contracts": [
+    {
+      "name": "SwapShell",
+      "abi": "abis/SwapShell.json",
+      "address": "0x4262efBd176F02824af27010bEa218429c33c7E8",
+      "proxyType": "ERC1967",
+      "implementation": "0x8B4420Fb0B3C366D1661B88466613F161D619f34",
+      "description": "Entry-point router wrapper. Use the proxy address for all swap integrations."
+    },
+    {
+      "name": "ArcusSettlement",
+      "abi": "abis/ArcusSettlement.json",
+      "address": "0x006102b16A04c20306A28b652745D3973D7D24fa",
+      "proxyType": "ERC1967",
+      "implementation": "0x28Fe3236da3Cea9AFDf1045c19e1139A7Da89457",
+      "description": "Settlement contract; routes SwapShell -> executor and enforces balance-delta accounting."
+    },
+    {
+      "name": "RfqExecutor",
+      "abi": "abis/RfqExecutor.json",
+      "address": "0xf4da3c42D9c9F494d4688A0112a9DB3C9b18a914",
+      "proxyType": "none",
+      "implementation": null,
+      "description": "Ordinary RFQ executor (maker fill against taker order)."
+    },
+    {
+      "name": "WrappedTokenRfqExecutor",
+      "abi": "abis/WrappedTokenRfqExecutor.json",
+      "address": "0x43cF43056C33128329B54F66CA3649CF2975f1A6",
+      "proxyType": "ERC1967",
+      "implementation": "0x4829D52f7099537e38Ee0B08c133f96810df67e2",
+      "description": "RFQ executor for wrapped-token mints; routes into WrappedTokenEscrow."
+    },
+    {
+      "name": "WrappedTokenFactory",
+      "abi": "abis/WrappedTokenFactory.json",
+      "address": "0x8bc71aE8EaC8B25F30c2990930Cc3A80E72e169e",
+      "proxyType": "ERC1967",
+      "implementation": "0xD3Fd212d087E084B748fF4D00D936a9f1E8936a9",
+      "description": "Deploys per-token wrapped-token BeaconProxy instances at CREATE2-predicted addresses."
+    },
+    {
+      "name": "WrappedTokenEscrow",
+      "abi": "abis/WrappedTokenEscrow.json",
+      "address": "0x6d56Ab475069B7E93886b3D3F06c5435B87Ba158",
+      "proxyType": "ERC1967",
+      "implementation": "0xCC31B65F43672A4151B30a6e181e0E8C1b1BC9B2",
+      "description": "Holds wrapped-token settlement state and deadlines."
+    },
+    {
+      "name": "WrappedToken",
+      "abi": "abis/WrappedToken.json",
+      "address": null,
+      "proxyType": "BeaconProxy",
+      "implementation": "0x95b58BF6C2b1d5f4D1786f1B0dEa42e80132833E",
+      "beacon": "0x27fEB332759F8d2f351D7fC72D29af37664ffd77",
+      "description": "Beacon implementation for wrapped tokens. Each wrapped token is a BeaconProxy at a factory-predicted address; bind this ABI to any such address. No single canonical address."
+    },
+    {
+      "name": "WrappedTokenBeacon",
+      "abi": "abis/UpgradeableBeacon.json",
+      "address": "0x27fEB332759F8d2f351D7fC72D29af37664ffd77",
+      "proxyType": "none",
+      "implementation": "0x95b58BF6C2b1d5f4D1786f1B0dEa42e80132833E",
+      "description": "OpenZeppelin UpgradeableBeacon pointing every WrappedToken BeaconProxy at the current implementation."
+    }
+  ]
+}

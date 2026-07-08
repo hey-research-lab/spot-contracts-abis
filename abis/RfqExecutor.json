@@ -1,0 +1,260 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "settlement_",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "ARCUS_RFQ_QUOTE_TYPEHASH",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "ARCUS_RFQ_QUOTE_WITNESS_TYPE_STRING",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "PERMIT2",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IPermit2"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "execute",
+    "inputs": [
+      {
+        "name": "taker",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "inputToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "inputAmount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "outputToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "minOutputAmount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "executorData",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "outputAmount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "hashArcusRfqQuote",
+    "inputs": [
+      {
+        "name": "quote",
+        "type": "tuple",
+        "internalType": "struct ArcusRfqQuote",
+        "components": [
+          {
+            "name": "quoteId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "maker",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "taker",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "makerBuyToken",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "makerSellToken",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "makerBuyAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "makerSellAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "validUntil",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "wrapped",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "settlement",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "ArcusRfqFilled",
+    "inputs": [
+      {
+        "name": "quoteId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "maker",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "taker",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "makerBuyToken",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "makerSellToken",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "makerBuyAmount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "makerSellAmount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "OnlySettlement",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "QuoteExpired",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "QuoteMismatch",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "SafeERC20FailedOperation",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "WrappedQuoteUnsupported",
+    "inputs": []
+  }
+]
