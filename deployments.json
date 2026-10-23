@@ -10,7 +10,7 @@
       "abi": "abis/SwapShell.json",
       "address": "0x4262efBd176F02824af27010bEa218429c33c7E8",
       "proxyType": "ERC1967",
-      "implementation": "0x8B4420Fb0B3C366D1661B88466613F161D619f34",
+      "implementation": "0x2b66ec2F62eC618dec1D83cc7aF1B5C815e45966",
       "description": "Entry-point router wrapper. Use the proxy address for all swap integrations."
     },
     {
@@ -18,7 +18,7 @@
       "abi": "abis/ArcusSettlement.json",
       "address": "0x006102b16A04c20306A28b652745D3973D7D24fa",
       "proxyType": "ERC1967",
-      "implementation": "0x28Fe3236da3Cea9AFDf1045c19e1139A7Da89457",
+      "implementation": "0xdFE851005a37107209d30f9b124467807f3aA86F",
       "description": "Settlement contract; routes SwapShell -> executor and enforces balance-delta accounting."
     },
     {
